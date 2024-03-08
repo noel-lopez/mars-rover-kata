@@ -1,11 +1,11 @@
 const compassRight = ['N', 'E', 'S', 'W'];
-
+const compassLeft = ['N','W','S','E'];
 export default class Rover {
-  execute(command: string): string {
-      if(command === 'L') return '0:0:W'
-      if(command === 'LL') return '0:0:S'
-      if(command === 'LLL') return '0:0:E'
-      return `0:0:${compassRight[command.length % compassRight.length]}`
+  execute(commands: string): string {
+    if(commands.includes('L')){  
+      return `0:0:${compassLeft[commands.length % compassLeft.length]}`;      
+    }
+    return `0:0:${compassRight[commands.length % compassRight.length]}`;
   }
 }
 

@@ -23,6 +23,8 @@ describe('Mars Rover', () => {
       ['0:0:W', 'L'],
       ['0:0:S', 'LL'],
       ['0:0:E', 'LLL'],
+      ['0:0:N', 'LLLL'],
+      ['0:0:W', 'LLLLL']
       ])('should return %j when the command is %j', (expectedLandingPosition: string, commands: string) => {
       const result = rover.execute(commands)
       expect(result).toBe(expectedLandingPosition)
