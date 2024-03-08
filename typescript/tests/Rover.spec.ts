@@ -1,9 +1,4 @@
-class Rover {
-  execute(command: string): string {
-    return '0:0:N'
-  }
-}
-
+import Rover from "../src/Rover"
 
 describe('Mars Rover', () => {
   it('should return 0:0:N when no command is given', () => {
