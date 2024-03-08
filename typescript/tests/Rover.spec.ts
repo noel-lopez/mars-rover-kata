@@ -1,33 +1,22 @@
 import Rover from "../src/Rover"
 
 describe('Mars Rover', () => {
-  it('should return 0:0:N when no command is given', () => {
-    const rover = new Rover()
-    const result = rover.execute('')
-    expect(result).toBe('0:0:N')
-  })
+    let rover: Rover;
 
-  it('should return 0:0:E when given R command line', () => {
-    const rover = new Rover()
-    const result = rover.execute('R')
-    expect(result).toBe('0:0:E')
-  })
+    beforeEach(() => {
+       rover = new Rover();
+    });
 
-  it('should return 0:0:S when given RR command line', () => {
-    const rover = new Rover()
-    const result = rover.execute('RR')
-    expect(result).toBe('0:0:S')
-  })
+    it.each([
+        ['0:0:N', ''],
+        ['0:0:E', 'R'],
+        ['0:0:S', 'RR'],
+        ['0:0:W', 'RRR'],
+        ['0:0:N', 'RRRR'],
+        ['0:0:E', 'RRRRR'],
+        ])('should return $j when the command is $j', (expectedLandingPosition: string, commands: string) => {
+        const result = rover.execute(commands)
+        expect(result).toBe(expectedLandingPosition)
+    })
 
-  it('should return 0:0:W when given RRR command line', () => {
-    const rover = new Rover()
-    const result = rover.execute('RRR')
-    expect(result).toBe('0:0:W')
-  })
-
-  it('should return 0:0:N when given RRRR command line', () => {
-    const rover = new Rover()
-    const result = rover.execute('RRRR')
-    expect(result).toBe('0:0:N')
-  })
 })
