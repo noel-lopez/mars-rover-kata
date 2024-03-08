@@ -1,9 +1,7 @@
+const compassRight = ['N', 'E', 'S', 'W'];
+
 export default class Rover {
   execute(command: string): string {
-    if (command === 'RR') return '0:0:S'
-    if (command === 'R') return '0:0:E'
-    if (command === 'RRR') return '0:0:W'
-    if (command === 'RRRRR') return '0:0:E'
-    return '0:0:N'
+      return `0:0:${compassRight[command.length % compassRight.length]}`
   }
 }
