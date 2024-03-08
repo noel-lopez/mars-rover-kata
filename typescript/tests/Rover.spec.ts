@@ -12,4 +12,10 @@ describe('Mars Rover', () => {
     const result = rover.execute('R')
     expect(result).toBe('0:0:E')
   })
+
+  it('should return 0:0:S when given RR command line', () => {
+    const rover = new Rover()
+    const result = rover.execute('RR')
+    expect(result).toBe('0:0:S')
+  })
 })
